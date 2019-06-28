@@ -1,10 +1,10 @@
 resource "azurerm_monitor_diagnostic_setting" "diagnostics_asr" {
     name                            = "diag-${azurerm_recovery_services_vault.asr_rg_vault.name}"
     target_resource_id              = "${azurerm_recovery_services_vault.asr_rg_vault.id}"
-    eventhub_name                   = "${var.diag_eh_name}"
-    eventhub_authorization_rule_id  = "${var.diag_eh_id}/authorizationrules/RootManageSharedAccessKey"
+    eventhub_name                   = "${var.diagnostics_map.eh_name}"
+    eventhub_authorization_rule_id  = "${var.diagnostics_map.eh_id}/authorizationrules/RootManageSharedAccessKey"
     log_analytics_workspace_id      = "${var.la_workspace_id}"
-    storage_account_id              = "${var.diag_sa}"
+    storage_account_id              = "${var.diagnostics_map.diags_sa}"
 
     log {
             category    = "AzureBackupReport"

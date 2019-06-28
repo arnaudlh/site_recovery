@@ -17,13 +17,6 @@ variable "tags" {
 variable "la_workspace_id" {
   
 }
-variable "diag_sa" {
-  
-}
-variable "diag_eh_id" {
-  
-}
-
-variable "diag_eh_name" {
-  
+variable "diagnostics_map" {
+ description = "map with the diagnostics"
 }
