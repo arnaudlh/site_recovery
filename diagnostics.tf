@@ -10,7 +10,7 @@ resource "azurerm_monitor_diagnostic_setting" "diagnostics_asr" {
             category    = "AzureBackupReport"
             enabled     = true
             retention_policy {
-                days    = 90
+                days    = var.opslogs_retention_period
                 enabled = true
             }
         }
@@ -18,7 +18,7 @@ resource "azurerm_monitor_diagnostic_setting" "diagnostics_asr" {
             category    = "AzureSiteRecoveryJobs"
             enabled     = true
             retention_policy {
-                days    = 90
+                days    = var.opslogs_retention_period
                 enabled = true
             }
         }
@@ -26,7 +26,7 @@ resource "azurerm_monitor_diagnostic_setting" "diagnostics_asr" {
             category    = "AzureSiteRecoveryEvents"
             enabled     = true
             retention_policy {
-                days    = 90
+                days    = var.opslogs_retention_period
                 enabled = true
             }
         }
@@ -34,7 +34,7 @@ resource "azurerm_monitor_diagnostic_setting" "diagnostics_asr" {
             category    = "AzureSiteRecoveryReplicatedItems"
             enabled     = true
             retention_policy {
-                days    = 90
+                days    = var.opslogs_retention_period
                 enabled = true
             }
         }
@@ -42,7 +42,7 @@ resource "azurerm_monitor_diagnostic_setting" "diagnostics_asr" {
             category    = "AzureSiteRecoveryReplicationStats"
             enabled     = true
             retention_policy {
-                days    = 90
+                days    = var.opslogs_retention_period
                 enabled = true
             }
         }
@@ -50,7 +50,7 @@ resource "azurerm_monitor_diagnostic_setting" "diagnostics_asr" {
             category    = "AzureSiteRecoveryRecoveryPoints"
             enabled     = true
             retention_policy {
-                days    = 90
+                days    = var.opslogs_retention_period
                 enabled = true
             }
         }
@@ -58,7 +58,7 @@ resource "azurerm_monitor_diagnostic_setting" "diagnostics_asr" {
             category    = "AzureSiteRecoveryReplicationDataUploadRate"
             enabled     = true
             retention_policy {
-                days    = 90
+                days    = var.opslogs_retention_period
                 enabled = true
             }
         }
@@ -66,7 +66,7 @@ resource "azurerm_monitor_diagnostic_setting" "diagnostics_asr" {
             category    = "AzureSiteRecoveryProtectedDiskDataChurn"
             enabled     = true
             retention_policy {
-                days    = 90
+                days    = var.opslogs_retention_period
                 enabled = true
             }
         }

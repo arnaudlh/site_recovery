@@ -15,8 +15,13 @@ variable "tags" {
 }
 
 variable "la_workspace_id" {
-  
+  description = "Log Analytics Repository"
 }
 variable "diagnostics_map" {
- description = "map with the diagnostics"
+ description = "Map with the diagnostics repository information"
+}
+
+variable "opslogs_retention_period" {
+  description = "(Optional) Number of days to keep operations logs inside storage account"
+  default = 60
 }
