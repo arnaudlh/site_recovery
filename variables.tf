@@ -1,24 +1,25 @@
 variable "resource_group_name" {
-  description = "Resource group name"
+  description = "(Required) Resource group name"
 }
 
 variable "location" {
-  description = "Location of the resources"
+  description = "(Required) Location of the site recovery vault."
 }
 
 variable "asr_vault_name" {
-  description = "name of the ASR vault"
+  description = "(Required) name of the ASR vault"
 }
 
 variable "tags" {
-  description = "tags to be applied to ASR"
+  description = "(Required) tags to be applied to ASR vault"
 }
 
 variable "la_workspace_id" {
-  description = "Log Analytics Repository"
+  description = "(Required) Log Analytics Repository"
 }
+
 variable "diagnostics_map" {
- description = "Map with the diagnostics repository information"
+ description = "(Required) Map with the diagnostics repository information"
 }
 
 variable "opslogs_retention_period" {
