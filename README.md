@@ -1,3 +1,4 @@
+[![Build status](https://dev.azure.com/azure-terraform/Blueprints/_apis/build/status/modules/site_recovery)](https://dev.azure.com/azure-terraform/Blueprints/_build/latest?definitionId=9)
 # Deploys an Azure Site Recovery Vault
 Creates the Azure Site Recovery Vault in a given region
 
@@ -89,19 +90,6 @@ tags = {
   }
 ```
 
-## opslogs_retention_period
-(Optional) Number of days to keep operations logs inside storage account
-```hcl
-variable "opslogs_retention_period" {
-  description = "(Optional) Number of days to keep operations logs inside storage account"
-  default = 60
-}
-```
-Example
-```hcl
-opslogs_retention_period = 180
-```
-
 ## la_workspace_id
 (Required) Log Analytics Repository ID
 ```hcl
@@ -130,13 +118,58 @@ Example
   }
 ```
 
+## diagnostics_settings
+(Required) Map with the diagnostics settings for ASR deployment.
+See the required structure in the following example or in the diagnostics module documentation.
 
+```hcl
+variable "diagnostics_settings" {
+ description = "(Required) Map with the diagnostics settings for ASR deployment"
+}
+```
+Example
+```hcl
+  diagnostics_settings = {
+    log = [
+                #["Category name",  "Diagnostics Enabled(true/false)", "Retention Enabled(true/false)", Retention_period] 
+                ["AzureBackupReport", true, true, 40],
+                ["AzureSiteRecoveryJobs", true, true, 20],
+                ["AzureSiteRecoveryEvents", true, true, 30],
+                ["AzureSiteRecoveryReplicatedItems", true, true, 40],
+                ["AzureSiteRecoveryReplicationStats", true, true, 50],
+                ["AzureSiteRecoveryRecoveryPoints", true, true, 60],
+                ["AzureSiteRecoveryReplicationDataUploadRate", true, true, 70],
+                ["AzureSiteRecoveryProtectedDiskDataChurn", true, true, 80],
+        ]
+    metric = [
+               #["AllMetrics", 60, True],
+    ]
+}
+```
 
 # Output
-## asr_configuration
-Returns the resource id of the created ASR.
+## object
+Returns the resource object of the created ASR vault.
 ```hcl
-output "asr_configuration" {
+output "object" {
   value = azurerm_recovery_services_vault.asr_rg_vault
 }
+```
+
+## name
+Returns the resource name of the created ASR vault.
+```hcl
+output "name" {
+  value = azurerm_recovery_services_vault.asr_rg_vault.name
+}
+
+```
+
+## id
+Returns the resource ID of the created ASR vault.
+```hcl
+output "id" {
+  value = azurerm_recovery_services_vault.asr_rg_vault.id
+}
+
 ```

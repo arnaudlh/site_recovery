@@ -22,7 +22,6 @@ variable "diagnostics_map" {
  description = "(Required) Map with the diagnostics repository information"
 }
 
-variable "opslogs_retention_period" {
-  description = "(Optional) Number of days to keep operations logs inside storage account"
-  default = 60
+variable "diagnostics_settings" {
+ description = "(Required) Map with the diagnostics settings for ASR deployment"
 }
