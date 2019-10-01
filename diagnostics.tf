@@ -1,5 +1,5 @@
 module "diagnostics_asr" {
-  source = "git@ssh.dev.azure.com:v3/azure-terraform/Blueprints/module_diagnostics?ref=v0.1.1"
+  source = "git://github.com/aztfmod/diagnostics.git?ref=v0.1.1"
   
     name                            = azurerm_recovery_services_vault.asr_rg_vault.name
     resource_id                     = azurerm_recovery_services_vault.asr_rg_vault.id
